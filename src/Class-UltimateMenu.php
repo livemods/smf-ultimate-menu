@@ -2,7 +2,7 @@
 
 /**
  * @package   Ultimate Menu mod
- * @version   "1.1.9"
+ * @version   "1.1.10"
  * @author    John Rayes <live627@gmail.com>
  * @copyright Copyright (c) 2014, John Rayes
  * @license   http://opensource.org/licenses/MIT MIT
