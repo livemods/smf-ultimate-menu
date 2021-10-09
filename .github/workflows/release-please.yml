@@ -46,7 +46,7 @@ jobs:
           git push
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
-      - run: tar -czvf myfile.tgz LICENSE README.md -C src/ *
+      - run: tar -czvf myfile.tgz LICENSE README.md src/*
         if: ${{ steps.release.outputs.release_created }}
       - name: Upload release asset
         uses: actions/github-script@v2
