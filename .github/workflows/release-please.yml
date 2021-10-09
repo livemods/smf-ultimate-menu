@@ -13,7 +13,6 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v2
         id: release
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: php
           package-name: ${{ env.MOD_NAME }}
       - uses: actions/github-script@v3
@@ -46,7 +45,7 @@ jobs:
           git push
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
-      - run: tar -czvf myfile.tgz LICENSE README.md -C src/ src/
+      - run: tar -czvf myfile.tgz LICENSE README.md -C src src/*
       
         if: ${{ steps.release.outputs.release_created }}
       - name: Upload release asset
