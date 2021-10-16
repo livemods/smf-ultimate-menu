@@ -52,6 +52,15 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const release = await github.repos.getReleaseByTag({
+              ...context.repo,
+              tag: "${{ steps.release.outputs.tag_name }}",
+            });
+            await github.repos.updateRelease({
+              ...context.repo,
+              release_id: release.data.id,
+              draft: true
+            });
             await github.repos.uploadReleaseAsset({
               owner: context.repo.owner,
               url: "${{ steps.release.outputs.upload_url }}",
@@ -62,5 +71,11 @@ jobs:
               },
               name: "${{ env.MOD_NAME }}_${{ steps.release.outputs.major }}-${{ steps.release.outputs.minor }}-${{ steps.release.outputs.patch }}.tgz",
               data: fs.readFileSync("./myfile.tgz")
+            });
+            await github.repos.updateRelease({
+              ...context.repo,
+              release_id: release.data.id,
+              draft: false,
+              name: "${{ steps.release.outputs.tag_name }}",
             });
         if: ${{ steps.release.outputs.release_created }}
