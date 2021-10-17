@@ -68,5 +68,5 @@ jobs:
               name: "${{ env.MOD_NAME }}_${{ steps.release.outputs.major }}-${{ steps.release.outputs.minor }}-${{ steps.release.outputs.patch }}.tgz",
               data: fs.readFileSync("./myfile.tgz")
             });
-            console.log( ${{ steps.release.outputs }} );
+            console.log('${{ toJSON(steps.release.outputs) }}');
         if: ${{ steps.release.outputs.release_created }}
