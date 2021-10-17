@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.14](https://www.github.com/livemods/smf-ultimate-menu/compare/v1.1.13...v1.1.14) (2021-10-17)
+
+
+### Bug Fixes
+
+* x ([8faecbf](https://www.github.com/livemods/smf-ultimate-menu/commit/8faecbf25cde1359880c8846a2fd7dda6d9bc2bd))
+
 ### [1.1.13](https://www.github.com/livemods/smf-ultimate-menu/compare/v1.1.12...v1.1.13) (2021-10-16)
 
 
